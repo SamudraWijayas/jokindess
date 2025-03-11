@@ -6,12 +6,12 @@ import mongoose from "mongoose"; // Tambahkan ini untuk validasi ID
 // GET: Menampilkan satu order berdasarkan ID
 export async function GET(
   req: NextRequest,
-  { params }: { params: Record<string, string> }
+  { params }: { params: { id?: string } }
 ) {
   await dbConnect(); // Pastikan koneksi ke database
   const { id } = params;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
+  if (!id || !mongoose.Types.ObjectId.isValid(id)) {
     return NextResponse.json({ error: "ID tidak valid" }, { status: 400 });
   }
 
@@ -36,7 +36,7 @@ export async function GET(
 // PUT: Memperbarui order berdasarkan ID
 export async function PUT(
   req: NextRequest,
-  { params }: { params: Record<string, string> }
+  { params }: { params: { id?: string } }
 ) {
   await dbConnect(); // Hubungkan ke database sebelum query
 
@@ -77,12 +77,12 @@ export async function PUT(
 // DELETE: Menghapus order berdasarkan ID
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: Record<string, string> }
+  { params }: { params: { id?: string } }
 ) {
   await dbConnect(); // Pastikan koneksi ke database
   const { id } = params;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
+  if (!id || !mongoose.Types.ObjectId.isValid(id)) {
     return NextResponse.json({ error: "ID tidak valid" }, { status: 400 });
   }
 
