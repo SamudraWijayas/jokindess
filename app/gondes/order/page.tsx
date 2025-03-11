@@ -12,22 +12,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 interface Order {
   _id: string;
@@ -43,8 +27,6 @@ interface Order {
 export default function OrdersPage() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
-  const [editingOrder, setEditingOrder] = useState<Order | null>(null);
-  const [open, setOpen] = useState(false);
   const [tab, setTab] = useState("process");
   const [user, setUser] = useState(null);
   const router = useRouter();
@@ -58,7 +40,7 @@ export default function OrdersPage() {
         const data = await res.json();
         if (!res.ok) throw new Error(data.error);
         setUser(data);
-      } catch (error) {
+      } catch {
         alert("Silakan login terlebih dahulu.");
         router.push("/auth/login");
       }
@@ -76,8 +58,8 @@ export default function OrdersPage() {
       const res = await fetch("/api/order");
       const data = await res.json();
       setOrders(data);
-    } catch (error) {
-      console.error("Gagal mengambil data order:", error);
+    } catch {
+      console.error("Gagal mengambil data order.");
     } finally {
       setLoading(false);
     }
@@ -148,4 +130,3 @@ export default function OrdersPage() {
     </div>
   );
 }
-  

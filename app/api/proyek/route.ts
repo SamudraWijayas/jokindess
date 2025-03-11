@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 import dbConnect from "@/lib/dbConnect";
 import Proyek from "@/models/Proyek";
 import cloudinary from "cloudinary";
+
 // **HANDLER GET** - Ambil semua proyek dari database
 export async function GET() {
   try {
@@ -42,7 +41,7 @@ export async function POST(req: NextRequest) {
     const price = formData.get("price")?.toString() || "";
     const category = formData.get("category")?.toString() || "";
 
-    let technologiesRaw = formData.getAll("technologies");
+    const technologiesRaw = formData.getAll("technologies");
 
     // Pastikan semua elemen dalam technologiesRaw adalah string
     let technologies: string[] = technologiesRaw
@@ -67,19 +66,21 @@ export async function POST(req: NextRequest) {
       const arrayBuffer = await image.arrayBuffer();
       const buffer = Buffer.from(arrayBuffer);
 
-      const uploadResponse = await new Promise((resolve, reject) => {
-        cloudinary.v2.uploader
-          .upload_stream(
-            { folder: "proyek" }, // Simpan di folder "proyek" di Cloudinary
-            (error, result) => {
-              if (error) reject(error);
-              resolve(result);
-            }
-          )
-          .end(buffer);
-      });
+      const uploadResponse: cloudinary.UploadApiResponse = await new Promise(
+        (resolve, reject) => {
+          cloudinary.v2.uploader
+            .upload_stream(
+              { folder: "proyek" }, // Simpan di folder "proyek" di Cloudinary
+              (error, result) => {
+                if (error) reject(error);
+                resolve(result as cloudinary.UploadApiResponse);
+              }
+            )
+            .end(buffer);
+        }
+      );
 
-      imageUrl = (uploadResponse as any).secure_url;
+      imageUrl = uploadResponse.secure_url;
     }
 
     // **Simpan ke MongoDB**
