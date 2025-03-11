@@ -12,21 +12,29 @@ export default function RegisterPage() {
       const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form), // Menggunakan form
+        body: JSON.stringify(form),
       });
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
 
       alert("Registrasi berhasil!");
-      router.push("/login"); // Redirect ke halaman login
-    } catch (error: any) {
-      alert(error.message);
+      router.push("/login");
+    } catch (error: unknown) {
+      console.error("Registrasi gagal:", error);
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("Terjadi kesalahan saat registrasi.");
+      }
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto p-4 border rounded">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-4 max-w-md mx-auto p-4 border rounded"
+    >
       <input
         type="text"
         placeholder="Name"
@@ -48,7 +56,10 @@ export default function RegisterPage() {
         onChange={(e) => setForm({ ...form, password: e.target.value })}
         className="p-2 border rounded"
       />
-      <button type="submit" className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+      <button
+        type="submit"
+        className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      >
         Register
       </button>
     </form>

@@ -25,6 +25,7 @@ export async function GET(
     }
     return NextResponse.json(order, { status: 200 });
   } catch (error) {
+    console.error("Error fetching order:", error);
     return NextResponse.json(
       { error: "Terjadi kesalahan saat mengambil data" },
       { status: 500 }
@@ -35,7 +36,7 @@ export async function GET(
 // PUT: Memperbarui order berdasarkan ID
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } } // Pastikan ini tetap
+  { params }: { params: { id: string } }
 ) {
   await dbConnect(); // Hubungkan ke database sebelum query
 
@@ -99,6 +100,7 @@ export async function DELETE(
       { status: 200 }
     );
   } catch (error) {
+    console.error("Error deleting order:", error);
     return NextResponse.json(
       { error: "Terjadi kesalahan saat menghapus data" },
       { status: 500 }

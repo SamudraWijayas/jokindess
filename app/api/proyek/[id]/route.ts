@@ -26,6 +26,7 @@ export async function GET(
 
     return NextResponse.json(proyek, { status: 200 });
   } catch (error) {
+    console.error("Error fetching project:", error);
     return NextResponse.json(
       { error: "Gagal mengambil proyek" },
       { status: 500 }
@@ -48,11 +49,10 @@ export async function PUT(
     const price = formData.get("price")?.toString() || "";
     const category = formData.get("category")?.toString() || "";
 
-    let technologiesRaw = formData.getAll("technologies");
-    // Pastikan semua elemen dalam technologiesRaw adalah string
+    const technologiesRaw = formData.getAll("technologies");
     let technologies: string[] = technologiesRaw
       .map((item) => (typeof item === "string" ? item : ""))
-      .filter((item) => item !== ""); // Buang elemen kosong
+      .filter((item) => item !== "");
 
     // Coba parse JSON jika data dikirim dalam format JSON string
     if (technologies.length === 1) {
@@ -64,6 +64,7 @@ export async function PUT(
           .map((tech) => tech.replace(/^\[?"|"?\]$/g, "").trim()); // Bersihkan format jika bukan JSON
       }
     }
+
     const proyek = await Proyek.findById(params.id);
     if (!proyek) {
       return NextResponse.json(
@@ -86,7 +87,7 @@ export async function PUT(
       const arrayBuffer = await newImage.arrayBuffer();
       const buffer = Buffer.from(arrayBuffer);
 
-      const uploadResponse = await new Promise((resolve, reject) => {
+      const uploadResponse: unknown = await new Promise((resolve, reject) => {
         cloudinary.v2.uploader
           .upload_stream({ folder: "proyek" }, (error, result) => {
             if (error) reject(error);
@@ -95,7 +96,7 @@ export async function PUT(
           .end(buffer);
       });
 
-      imageUrl = (uploadResponse as any).secure_url;
+      imageUrl = (uploadResponse as { secure_url: string }).secure_url;
     }
 
     // **Update proyek di MongoDB**
@@ -118,8 +119,9 @@ export async function PUT(
       { status: 200 }
     );
   } catch (error) {
+    console.error("Error updating project:", error);
     return NextResponse.json(
-      { error: "Gagal memperbarui proyek", details: error },
+      { error: "Gagal memperbarui proyek" },
       { status: 500 }
     );
   }
@@ -155,8 +157,9 @@ export async function DELETE(
       { status: 200 }
     );
   } catch (error) {
+    console.error("Error deleting project:", error);
     return NextResponse.json(
-      { error: "Gagal menghapus proyek", details: error },
+      { error: "Gagal menghapus proyek" },
       { status: 500 }
     );
   }

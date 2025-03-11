@@ -1,11 +1,7 @@
 "use client";
 
-import React, { useState, ChangeEvent } from "react";
-import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 import { toast } from "react-hot-toast";
-import { MdDateRange } from "react-icons/md";
-import { CiViewList } from "react-icons/ci";
-import { IoDocumentTextOutline } from "react-icons/io5";
 
 interface FormData {
   service: string;
@@ -15,8 +11,6 @@ interface FormData {
   status: string;
   price: string;
 }
-
-const steps = [CiViewList, IoDocumentTextOutline, MdDateRange];
 
 const ServicePage: React.FC = () => {
   const [step, setStep] = useState<number>(1);
@@ -28,14 +22,6 @@ const ServicePage: React.FC = () => {
     status: "process",
     price: "-",
   });
-
-  const router = useRouter();
-
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
 
   const handleNext = () => {
     if (step === 2 && !formData.details) {

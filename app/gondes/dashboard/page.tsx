@@ -18,7 +18,8 @@ export default function Dashboard() {
         if (!res.ok) throw new Error(data.error);
 
         setUser(data);
-      } catch (error) {
+      } catch (error: unknown) {
+        console.error("Gagal mengambil data pengguna:", error);
         alert("Silakan login terlebih dahulu.");
         router.push("/auth/login");
       }

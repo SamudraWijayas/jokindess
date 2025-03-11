@@ -1,8 +1,14 @@
 import jwt from "jsonwebtoken";
 
-const SECRET_KEY = "your_secret_key";
+const SECRET_KEY = "jfhweifhwuiregfehskbfgdfdsjkvfhd";
 
-export function generateToken(user: any) {
+interface User {
+  _id: string;
+  name: string;
+  email: string;
+}
+
+export function generateToken(user: User) {
   return jwt.sign(
     { id: user._id, name: user.name, email: user.email },
     SECRET_KEY,
@@ -10,6 +16,6 @@ export function generateToken(user: any) {
   );
 }
 
-export function verifyToken(token: string) {
+export function verifyToken(token: string): jwt.JwtPayload | string {
   return jwt.verify(token, SECRET_KEY);
 }

@@ -13,6 +13,7 @@ export async function GET(req: Request) {
 
     return NextResponse.json({ name: decoded.name });
   } catch (error) {
+    console.error("Token tidak valid:", error);
     return NextResponse.json({ error: "Token tidak valid" }, { status: 401 });
   }
 }
