@@ -194,6 +194,34 @@ export default function ProyekPage() {
               {editingProyek?._id ? "Edit" : "Tambah"} Proyek
             </DialogTitle>
           </DialogHeader>
+          <div className="space-y-4">
+            <Label htmlFor="title">Judul Proyek</Label>
+            <Input
+              id="title"
+              value={editingProyek?.title || ""}
+              onChange={(e) =>
+                setEditingProyek((prev) => ({
+                  ...prev!,
+                  title: e.target.value,
+                }))
+              }
+            />
+            <Label htmlFor="category">Kategori</Label>
+            <Select
+              onValueChange={(value) =>
+                setEditingProyek((prev) => ({ ...prev!, category: value }))
+              }
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Pilih kategori" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Web">Web</SelectItem>
+                <SelectItem value="Mobile">Mobile</SelectItem>
+                <SelectItem value="Desktop">Desktop</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
           <DialogFooter>
             <Button onClick={() => console.log("Simpan proyek")}>Simpan</Button>
           </DialogFooter>

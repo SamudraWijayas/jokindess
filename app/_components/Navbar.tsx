@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
           src="/logo.png"
           alt="Logo"
           className="h-10 w-10"
-          width={200}
+          width={200} 
           height={100}
         />
       </div>

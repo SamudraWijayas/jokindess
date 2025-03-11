@@ -25,7 +25,7 @@ export async function GET(
     }
     return NextResponse.json(order, { status: 200 });
   } catch (error) {
-    console.error("Error fetching order:", error);
+    console.error("Error saat mengambil data order:", error);
     return NextResponse.json(
       { error: "Terjadi kesalahan saat mengambil data" },
       { status: 500 }
@@ -40,14 +40,14 @@ export async function PUT(
 ) {
   await dbConnect(); // Hubungkan ke database sebelum query
 
-  const id = params?.id; // Pastikan params.id tetap ada
+  const id = params?.id;
 
   if (!id || !mongoose.Types.ObjectId.isValid(id)) {
     return NextResponse.json({ error: "ID tidak valid" }, { status: 400 });
   }
 
   try {
-    const body = await req.json(); // Parsing body request
+    const body = await req.json();
 
     const updatedOrder = await Order.findByIdAndUpdate(id, body, {
       new: true,
@@ -100,7 +100,7 @@ export async function DELETE(
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error deleting order:", error);
+    console.error("Error saat menghapus order:", error);
     return NextResponse.json(
       { error: "Terjadi kesalahan saat menghapus data" },
       { status: 500 }
