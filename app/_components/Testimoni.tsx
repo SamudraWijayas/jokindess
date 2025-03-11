@@ -2,8 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import rectangle4 from "../../assets/rectangle/rectangle4.png";
-import rectangle5 from "../../assets/rectangle/rectangle5.png";
 
 interface Testimonial {
   id: number;

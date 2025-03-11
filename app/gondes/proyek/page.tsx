@@ -147,7 +147,7 @@ export default function ProyekPage() {
       setOpen(false);
       fetchProyeks();
     } catch (error) {
-      console.error(error);
+      console.error("Terjadi kesalahan:", error);
     }
   };
 
