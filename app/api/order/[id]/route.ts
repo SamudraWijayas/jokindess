@@ -1,15 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import Order from "@/models/Order";
 import dbConnect from "@/lib/dbConnect";
-import mongoose from "mongoose"; // Tambahkan ini untuk validasi ID
+import mongoose from "mongoose";
 
 // GET: Menampilkan satu order berdasarkan ID
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id?: string } }
+  context: { params: Record<string, any> }
 ) {
-  await dbConnect(); // Pastikan koneksi ke database
-  const { id } = params;
+  await dbConnect();
+  const id = context.params?.id; // Mengambil ID dari params
 
   if (!id || !mongoose.Types.ObjectId.isValid(id)) {
     return NextResponse.json({ error: "ID tidak valid" }, { status: 400 });
@@ -36,11 +36,10 @@ export async function GET(
 // PUT: Memperbarui order berdasarkan ID
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id?: string } }
+  context: { params: Record<string, any> }
 ) {
-  await dbConnect(); // Hubungkan ke database sebelum query
-
-  const id = params?.id;
+  await dbConnect();
+  const id = context.params?.id;
 
   if (!id || !mongoose.Types.ObjectId.isValid(id)) {
     return NextResponse.json({ error: "ID tidak valid" }, { status: 400 });
@@ -77,10 +76,10 @@ export async function PUT(
 // DELETE: Menghapus order berdasarkan ID
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id?: string } }
+  context: { params: Record<string, any> }
 ) {
-  await dbConnect(); // Pastikan koneksi ke database
-  const { id } = params;
+  await dbConnect();
+  const id = context.params?.id;
 
   if (!id || !mongoose.Types.ObjectId.isValid(id)) {
     return NextResponse.json({ error: "ID tidak valid" }, { status: 400 });
