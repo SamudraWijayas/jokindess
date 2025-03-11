@@ -3,12 +3,16 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
+interface Technology {
+  name: string;
+}
+
 interface Proyek {
   _id?: string;
   title: string;
   description: string;
   image?: string | File;
-  technologies: string[];
+  technologies: Technology[];
   oldprice: string;
   price: string;
   category: string;
@@ -45,8 +49,12 @@ const ProjectList: React.FC = () => {
       const result = await res.json();
       const proyeksData = Array.isArray(result.data) ? result.data : [];
       setProyeks(proyeksData);
-    } catch (error: any) {
-      setError(error.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Terjadi kesalahan yang tidak diketahui");
+      }
     }
     setLoading(false);
   };
@@ -111,7 +119,7 @@ const ProjectList: React.FC = () => {
                       key={index}
                       className="bg-background text-white py-1 px-3 rounded-full text-sm"
                     >
-                      {tech}
+                      {tech.name}
                     </span>
                   ))}
                 </div>
@@ -136,12 +144,6 @@ const ProjectList: React.FC = () => {
           )}
         </div>
       )}
-
-      {/* <div className="mt-8">
-        <a href="#" className="text-green-500">
-          Lihat semua
-        </a>
-      </div> */}
     </div>
   );
 };
