@@ -95,10 +95,12 @@ const ProjectList: React.FC = () => {
                 className="bg-groyy p-4 rounded-lg w-[20em]"
               >
                 {typeof proyek.image === "string" && proyek.image && (
-                  <img
+                  <Image
                     src={proyek.image}
                     alt={proyek.title}
-                    className="w-full h-40 object-cover mb-4 rounded-lg"
+                    width={64}
+                    height={64}
+                    className="-full h-40 object-cover mb-4 rounded-lg"
                   />
                 )}
                 <p className="mb-2">{proyek.description}</p>
