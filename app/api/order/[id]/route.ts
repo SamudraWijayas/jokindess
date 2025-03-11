@@ -6,7 +6,7 @@ import mongoose from "mongoose"; // Tambahkan ini untuk validasi ID
 // GET: Menampilkan satu order berdasarkan ID
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Record<string, string> }
 ) {
   await dbConnect(); // Pastikan koneksi ke database
   const { id } = params;
@@ -36,7 +36,7 @@ export async function GET(
 // PUT: Memperbarui order berdasarkan ID
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Record<string, string> }
 ) {
   await dbConnect(); // Hubungkan ke database sebelum query
 
@@ -77,7 +77,7 @@ export async function PUT(
 // DELETE: Menghapus order berdasarkan ID
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Record<string, string> }
 ) {
   await dbConnect(); // Pastikan koneksi ke database
   const { id } = params;
