@@ -314,10 +314,10 @@ const ServicePage: React.FC = () => {
               >
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-white">
+                    <h3 className="text-2xl font-bold text-white text-left">
                       Deadline Proyek
                     </h3>
-                    <p className="text-gray-300 mt-1 text-[16px]">
+                    <p className="text-gray-300 mt-1 text-[16px] text-left">
                       Kapan proyek ini harus diselesaikan?
                     </p>
                   </div>
@@ -351,14 +351,14 @@ const ServicePage: React.FC = () => {
                       onChange={(e) =>
                         setFormData({ ...formData, deadline: e.target.value })
                       }
-                      className="mt-2 p-2 border-none rounded w-full text-white focus:outline-none focus:ring-0"
+                      className="mt-2 p-2 border-1 border-gray-500/50 rounded w-full text-white focus:outline-none focus:ring-0"
                       style={{
                         colorScheme: "dark", // Biar tanggal juga putih di mode dark
                       }}
                     />
                   </div>
                   <div
-                    className={`p-4 shadow-xl rounded-lg border cursor-pointer text-center flex items-center justify-center ${
+                    className={`p-4 shadow-xl rounded-lg border cursor-pointer text-left flex items-center justify-center ${
                       formData.deadline === "Fleksibel"
                         ? "border-ijo"
                         : "border-groyy"
@@ -367,7 +367,7 @@ const ServicePage: React.FC = () => {
                       setFormData({ ...formData, deadline: "Fleksibel" })
                     }
                   >
-                    <h4 className="font-bold text-[13px] text-white text-center flex items-center justify-center">
+                    <h4 className="font-bold text-[13px] text-white text-left flex items-center justify-center">
                       Jadwal Fleksibel
                     </h4>
                   </div>
