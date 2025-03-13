@@ -35,17 +35,17 @@ const Navbar: React.FC = () => {
             : "opacity-0 -translate-y-5 scale-95 md:opacity-100 md:translate-y-0 md:scale-100 md:flex"
         }`}
       >
-        <Link href="/" className="text-green-400">
+        <Link href="#w" className="hover:text-green-400">
           Beranda
         </Link>
-        <Link href="/pesanan" className="hover:text-green-400">
-          Pesanan Saya
+        <Link href="#service" className="hover:text-green-400">
+          Service
         </Link>
-        <Link href="/faq" className="hover:text-green-400">
-          FAQ
+        <Link href="#proyek" className="hover:text-green-400">
+          Proyek
         </Link>
-        <Link href="/marketplace" className="hover:text-green-400">
-          Marketplace
+        <Link href="#faq" className="hover:text-green-400">
+          Faq
         </Link>
       </nav>
     </header>

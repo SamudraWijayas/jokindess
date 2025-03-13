@@ -14,10 +14,10 @@ export async function GET() {
       { message: "Data proyek ditemukan", data: proyekList },
       { status: 200 }
     );
-  } catch (error) {
-    console.error("Error GET:", error);
+  } catch {
+    console.error("Error GET");
     return NextResponse.json(
-      { message: "Gagal mengambil data proyek", error },
+      { message: "Gagal mengambil data proyek" },
       { status: 500 }
     );
   }
@@ -29,6 +29,11 @@ cloudinary.v2.config({
   api_key: process.env.API_KEY,
   api_secret: process.env.API_SECRET,
 });
+
+interface CloudinaryResponse {
+  secure_url: string;
+  public_id: string;
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -66,14 +71,14 @@ export async function POST(req: NextRequest) {
       const arrayBuffer = await image.arrayBuffer();
       const buffer = Buffer.from(arrayBuffer);
 
-      const uploadResponse: cloudinary.UploadApiResponse = await new Promise(
+      const uploadResponse: CloudinaryResponse = await new Promise(
         (resolve, reject) => {
           cloudinary.v2.uploader
             .upload_stream(
               { folder: "proyek" }, // Simpan di folder "proyek" di Cloudinary
               (error, result) => {
-                if (error) reject(error);
-                resolve(result as cloudinary.UploadApiResponse);
+                if (error) return reject(error);
+                resolve(result as CloudinaryResponse);
               }
             )
             .end(buffer);
@@ -100,9 +105,6 @@ export async function POST(req: NextRequest) {
     );
   } catch (error) {
     console.error("Error POST:", error);
-    return NextResponse.json(
-      { message: "Server error", error },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: "Server error" }, { status: 500 });
   }
 }

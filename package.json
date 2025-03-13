@@ -18,6 +18,7 @@
     "@radix-ui/react-slot": "^1.1.2",
     "animate.css": "^4.1.1",
     "antd": "^5.24.3",
+    "aos": "^2.3.4",
     "bcryptjs": "^3.0.2",
     "class-variance-authority": "^0.7.1",
     "cloudinary": "^2.6.0",
@@ -40,6 +41,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/aos": "^3.0.7",
     "@types/formidable": "^3.4.5",
     "@types/js-cookie": "^3.0.6",
     "@types/jsonwebtoken": "^9.0.9",

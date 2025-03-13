@@ -5,7 +5,7 @@ import Image from "next/image";
 import Navbar from "@/app/_components/Navbar";
 import Service from "@/app/_components/Service";
 import Proyek from "@/app/_components/Proyek";
-import Testimoni from "@/app/_components/Testimoni";
+// import Testimoni from "@/app/_components/Testimoni";
 import Order from "@/app/_components/Order";
 import Footer from "@/app/_components/Footer";
 
@@ -13,7 +13,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="homepage text-white mb-27 pt-10 lg:pt-30 bg-background">
+      <div className="homepage text-white mb-27 pt-10 lg:pt-37 bg-background">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="hero grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-20 px-6 md:px-10 pt-20">
             {/* Decorative Rectangle */}
@@ -53,7 +53,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Image Section */}
-            <div className="box flex justify-center md:justify-end items-center animate__animated animate__fadeInRight">
+            <div className="box flex justify-center md:justify-end items-center animate__animated animate__fadeInDown">
               <Image
                 src="/image.png"
                 alt="Coding Illustration"
@@ -67,7 +67,7 @@ const Home: React.FC = () => {
       </div>
       <Service/>
       <Proyek/>
-      <Testimoni/>
+      {/* <Testimoni/> */}
       <Order/>
       <Footer/>
     </>

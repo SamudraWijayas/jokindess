@@ -2,17 +2,15 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-
-interface Technology {
-  name: string;
-}
+import AOS from "aos"; // Tambahkan ini
+import "aos/dist/aos.css"; // Import CSS AOS
 
 interface Proyek {
   _id?: string;
   title: string;
   description: string;
   image?: string | File;
-  technologies: Technology[];
+  technologies: string[];
   oldprice: string;
   price: string;
   category: string;
@@ -49,12 +47,8 @@ const ProjectList: React.FC = () => {
       const result = await res.json();
       const proyeksData = Array.isArray(result.data) ? result.data : [];
       setProyeks(proyeksData);
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("Terjadi kesalahan yang tidak diketahui");
-      }
+    } catch {
+      setError("error fetch");
     }
     setLoading(false);
   };
@@ -63,12 +57,16 @@ const ProjectList: React.FC = () => {
     (proyek) => proyek.category === selectedCategory
   );
 
+  useEffect(() => {
+    AOS.init({ duration: 500 }); // Pastikan AOS diinisialisasi
+  }, []);
+
   return (
-    <div className="text-white min-h-screen flex flex-col items-center py-10">
-      <h1 className="text-center text-2xl font-bold mb-4">
+    <div className="text-white min-h-screen flex flex-col items-center py-10" id="proyek">
+      <h1 className="text-center text-2xl font-bold mb-4" data-aos="fade-up">
         Kami Punya Proyek Siap Pakai
       </h1>
-      <p className="text-center mb-6">
+      <p className="text-center mb-6" data-aos="fade-up">
         Telusuri proyek terbaru kami, temukan proyek siap pakai sesuai
         kebutuhanmu untuk mendapatkan harga lebih murah dan penyelesaian lebih
         cepat!
@@ -95,7 +93,10 @@ const ProjectList: React.FC = () => {
       ) : error ? (
         <p className="text-red-500">{error}</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          data-aos="fade-up"
+        >
           {filteredProjects.length > 0 ? (
             filteredProjects.map((proyek) => (
               <div
@@ -106,9 +107,9 @@ const ProjectList: React.FC = () => {
                   <Image
                     src={proyek.image}
                     alt={proyek.title}
-                    width={64}
-                    height={64}
-                    className="-full h-40 object-cover mb-4 rounded-lg"
+                    className="w-full h-40 object-cover mb-4 rounded-lg"
+                    width={200}
+                    height={100}
                   />
                 )}
                 <p className="mb-2">{proyek.description}</p>
@@ -119,7 +120,7 @@ const ProjectList: React.FC = () => {
                       key={index}
                       className="bg-background text-white py-1 px-3 rounded-full text-sm"
                     >
-                      {tech.name}
+                      {tech}
                     </span>
                   ))}
                 </div>
@@ -144,6 +145,12 @@ const ProjectList: React.FC = () => {
           )}
         </div>
       )}
+
+      {/* <div className="mt-8">
+        <a href="#" className="text-green-500">
+          Lihat semua
+        </a>
+      </div> */}
     </div>
   );
 };
