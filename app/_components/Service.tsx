@@ -358,7 +358,7 @@ const ServicePage: React.FC = () => {
                     />
                   </div>
                   <div
-                    className={`p-4 shadow-xl rounded-lg border cursor-pointer text-left flex items-center justify-center ${
+                    className={`p-4 shadow-xl rounded-lg border cursor-pointer text-left flex items-center ${
                       formData.deadline === "Fleksibel"
                         ? "border-ijo"
                         : "border-groyy"
@@ -367,7 +367,7 @@ const ServicePage: React.FC = () => {
                       setFormData({ ...formData, deadline: "Fleksibel" })
                     }
                   >
-                    <h4 className="font-bold text-[13px] text-white text-left flex items-center justify-center">
+                    <h4 className="font-bold text-[13px] text-white text-left flex items-center">
                       Jadwal Fleksibel
                     </h4>
                   </div>
