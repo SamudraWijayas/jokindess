@@ -169,7 +169,7 @@ const ServicePage: React.FC = () => {
       <p className="mt-2 text-white" data-aos="fade-up">
         Kami menyediakan jasa IT termurah, tercepat, dan terpercaya.
       </p>
-      <section className="mt-7 bg-groyy lg:h-[451px] p-6 rounded-lg max-w-4xl w-full relative">
+      <section className="mt-7 bg-groyy lg:h-[451px] p-1 lg:p-6 rounded-lg max-w-4xl w-full relative">
         <Image
           src="/rectangle/rectangle3.png"
           alt="Decorative"
