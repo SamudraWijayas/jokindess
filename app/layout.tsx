@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: {
-    default: "Joki Ndess",
+    default: "Joki Ndess - Jasa Pembuatan Website Profesional",
     template: "%s - Solusi Implementasi proyek IT tercepat dan terpercaya",
   },
   description:
