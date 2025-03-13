@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
             : "opacity-0 -translate-y-5 scale-95 md:opacity-100 md:translate-y-0 md:scale-100 md:flex"
         }`}
       >
-        <Link href="#w" className="hover:text-green-400">
+        <Link href="#home" className="hover:text-green-400">
           Beranda
         </Link>
         <Link href="#service" className="hover:text-green-400">

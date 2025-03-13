@@ -29,7 +29,7 @@ const Order: NextPage = () => {
   };
 
   return (
-    <div className="text-white items-center py-10 px-6 sm:px-8 lg:px-12">
+    <div className="text-white items-center py-10 px-6 sm:px-8 lg:px-12" id="faq">
       <div className="w-full mx-auto px-4 sm:px-6 py-10">
         <h1 className="text-2xl sm:text-3xl font-bold mb-4 text-center sm:text-left">
           Gimana, Sudah Yakin?
