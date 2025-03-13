@@ -1,6 +1,7 @@
 import React from "react";
 import { FaInstagram } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -18,9 +19,14 @@ const Footer = () => {
               />
               Joki Ndes
             </h1>
-            <p className="flex items-center mt-4 sm:mt-0">
+            <Link
+              href="https://www.instagram.com/jokindesss?igsh=Zmt2OWJqb2Frcm1k"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center mt-4 sm:mt-0 text-gray-300 hover:text-gray-400 transition"
+            >
               <FaInstagram className="mr-1" /> @jokindess
-            </p>
+            </Link>
           </div>
         </div>
         {/* Copyright */}

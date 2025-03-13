@@ -228,7 +228,7 @@ const ServicePage: React.FC = () => {
                 initial={{ x: 100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
               >
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
                   <div>
                     <h3 className="text-2xl font-bold text-white">
                       Apa jenis proyeknya?
@@ -271,7 +271,7 @@ const ServicePage: React.FC = () => {
                 initial={{ x: 100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
               >
-                <div className="flex justify-between items-center mb-10">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
                   <div>
                     <h3 className="text-2xl font-bold text-white text-left">
                       Detail Proyek
@@ -312,18 +312,18 @@ const ServicePage: React.FC = () => {
                 exit={{ x: -100, opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="flex justify-between items-center mb-10">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-white text-left">
+                    <h3 className="text-2xl font-bold text-white">
                       Deadline Proyek
                     </h3>
-                    <p className="text-gray-300 mt-1 text-[16px] text-left">
+                    <p className="text-gray-300 mt-1 text-[16px]">
                       Kapan proyek ini harus diselesaikan?
                     </p>
                   </div>
                   <Link
-                    href="https://wa.me/6287718517731" // Ganti dengan nomor WhatsApp admin
-                    className="text-gray-300 underline hover:text-gray-400 transition"
+                    href="https://wa.me/6287718517731"
+                    className="text-gray-300 underline hover:text-gray-400 transition self-start md:self-auto"
                   >
                     Diskusi via chat aja lah
                   </Link>
