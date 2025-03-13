@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import type { NextPage } from "next";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -29,7 +30,10 @@ const Order: NextPage = () => {
   };
 
   return (
-    <div className="text-white items-center py-10 px-2 sm:px-8 lg:px-12" id="faq">
+    <div
+      className="text-white items-center py-10 px-2 sm:px-8 lg:px-12"
+      id="faq"
+    >
       <div className="w-full mx-auto px-4 sm:px-6 py-10">
         <h1 className="text-2xl sm:text-3xl font-bold mb-4 text-center sm:text-left">
           Gimana, Sudah Yakin?
@@ -39,9 +43,12 @@ const Order: NextPage = () => {
           terbaikmu dalam menghadirkan solusi IT yang hebat!
         </p>
         <div className="flex justify-center sm:justify-start">
-          <button className="mt-6 px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition">
+          <Link
+            href="#service" // Ganti dengan nomor WhatsApp admin
+            className="mt-6 px-6 py-3 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition inline-block text-center"
+          >
             Pesan Sekarang
-          </button>
+          </Link>
         </div>
 
         <div className="flex flex-col lg:flex-row justify-between mt-14 space-y-6 lg:space-y-0 lg:space-x-10">

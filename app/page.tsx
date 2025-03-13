@@ -8,6 +8,7 @@ import Proyek from "@/app/_components/Proyek";
 // import Testimoni from "@/app/_components/Testimoni";
 import Order from "@/app/_components/Order";
 import Footer from "@/app/_components/Footer";
+import Link from "next/link";
 
 const Home: React.FC = () => {
   return (
@@ -47,9 +48,12 @@ const Home: React.FC = () => {
                 dan sesuai kebutuhan Anda. Percayakan proyek Anda pada kami, dan
                 dapatkan solusi terbaik dengan harga yang ramah di kantong!
               </p>
-              <button className="mt-6 px-6 py-3 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition">
+              <Link
+                href="#service" // Ganti dengan nomor WhatsApp admin
+                className="mt-6 px-6 py-3 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition inline-block text-center"
+              >
                 Pesan Sekarang
-              </button>
+              </Link>
             </div>
 
             {/* Image Section */}
@@ -65,11 +69,11 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
-      <Service/>
-      <Proyek/>
+      <Service />
+      <Proyek />
       {/* <Testimoni/> */}
-      <Order/>
-      <Footer/>
+      <Order />
+      <Footer />
     </>
   );
 };

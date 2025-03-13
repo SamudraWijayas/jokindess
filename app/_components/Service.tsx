@@ -2,6 +2,7 @@
 
 import React, { useState, ChangeEvent } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -129,14 +130,7 @@ const ServicePage: React.FC = () => {
       const response = await fetch("/api/order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          service: formData.service,
-          details: formData.details,
-          deadline: formData.deadline,
-          whatsapp: formData.whatsapp,
-          status: formData.status || "process",
-          price: formData.price || "-",
-        }),
+        body: JSON.stringify(formData),
       });
 
       const result = await response.json();
@@ -153,6 +147,21 @@ const ServicePage: React.FC = () => {
           price: "-",
         });
         setStep(1);
+
+        // Nomor WhatsApp penerima (Admin)
+        const adminNumber = "6287718517731"; // Ganti dengan nomor admin (format internasional tanpa "+")
+
+        // Format pesan untuk dikirim ke WhatsApp
+        const pesanWA = `Halo Admin, ada pesanan baru!
+        *Jenis Jasa:* ${formData.service}
+        *Detail:* ${formData.details}
+        *Deadline:* ${formData.deadline}`;
+
+        // Kirim ke WhatsApp Admin
+        const waLink = `https://wa.me/${adminNumber}?text=${encodeURIComponent(
+          pesanWA
+        )}`;
+        window.open(waLink, "_blank");
       } else {
         toast.error(result.error);
       }
@@ -169,7 +178,7 @@ const ServicePage: React.FC = () => {
       <p className="mt-2 text-white" data-aos="fade-up">
         Kami menyediakan jasa IT termurah, tercepat, dan terpercaya.
       </p>
-      <section className="mt-7 bg-groyy lg:h-[451px] p-1 lg:p-6 rounded-lg max-w-4xl w-full relative">
+      <section className="mt-7 bg-groyy lg:h-[auto] p-1 lg:p-6 rounded-lg max-w-4xl w-full relative">
         <Image
           src="/rectangle/rectangle3.png"
           alt="Decorative"
@@ -219,9 +228,23 @@ const ServicePage: React.FC = () => {
                 initial={{ x: 100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
               >
-                <h3 className="text-2xl font-bold text-white text-left">
-                  Apa jenis proyeknya?
-                </h3>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white">
+                      Apa jenis proyeknya?
+                    </h3>
+                    <p className="text-gray-300 mt-1 text-[16px] text-left">
+                      Proyekmu termasuk yang mana?
+                    </p>
+                  </div>
+                  <Link
+                    href="https://wa.me/6287718517731" // Ganti dengan nomor WhatsApp admin
+                    className="text-gray-300 underline hover:text-gray-400 transition"
+                  >
+                    Diskusi via chat aja lah
+                  </Link>
+                </div>
+
                 <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {services.map(({ name, description }) => (
                     <div
@@ -248,12 +271,22 @@ const ServicePage: React.FC = () => {
                 initial={{ x: 100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
               >
-                <h3 className="text-2xl font-bold text-white text-left">
-                  Detail Proyek
-                </h3>
-                <p className="mt-2 text-white text-left">
-                  Ceritakan gambaran dari proyekmu
-                </p>
+                <div className="flex justify-between items-center mb-10">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white text-left">
+                      Detail Proyek
+                    </h3>
+                    <p className="text-gray-300 mt-1 text-[16px] text-left">
+                      Ceritakan gambaran dari proyekmu
+                    </p>
+                  </div>
+                  <Link
+                    href="https://wa.me/6287718517731" // Ganti dengan nomor WhatsApp admin
+                    className="text-gray-300 underline hover:text-gray-400 transition"
+                  >
+                    Diskusi via chat aja lah
+                  </Link>
+                </div>
                 <textarea
                   name="details"
                   placeholder="Masukkan detail proyek Anda"
@@ -261,12 +294,14 @@ const ServicePage: React.FC = () => {
                   onChange={handleChange}
                   className="w-full h-40 mt-2 p-2 bg-gelap-1 border border-gray-500 rounded text-white"
                 />
-                <button
-                  onClick={handleNext}
-                  className="mt-4 px-4 py-2 bg-ijo text-white rounded"
-                >
-                  Next
-                </button>
+                <div className="flex justify-end mt-4">
+                  <button
+                    onClick={handleNext}
+                    className="px-4 py-2 text-white rounded bg-green-600"
+                  >
+                    Next
+                  </button>
+                </div>
               </motion.div>
             )}
             {step === 3 && (
@@ -277,9 +312,23 @@ const ServicePage: React.FC = () => {
                 exit={{ x: -100, opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="text-2xl font-bold text-white text-left">
-                  Deadline Proyek
-                </h3>
+                <div className="flex justify-between items-center mb-10">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white text-left">
+                      Deadline Proyek
+                    </h3>
+                    <p className="text-gray-300 mt-1 text-[16px] text-left">
+                      Kapan proyek ini harus diselesaikan?
+                    </p>
+                  </div>
+                  <Link
+                    href="https://wa.me/6287718517731" // Ganti dengan nomor WhatsApp admin
+                    className="text-gray-300 underline hover:text-gray-400 transition"
+                  >
+                    Diskusi via chat aja lah
+                  </Link>
+                </div>
+
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div
                     className={`p-4 shadow-xl rounded-lg border cursor-pointer ${
@@ -287,23 +336,29 @@ const ServicePage: React.FC = () => {
                         ? "border-ijo"
                         : "border-groyy"
                     }`}
-                    onClick={() => setFormData({ ...formData, deadline: "" })}
                   >
-                    <h4 className="font-bold text-ijo">Tentukan Deadline</h4>
+                    <h4 className="font-bold text-white text-left text-[13px]">
+                      Pilih Tanggal
+                    </h4>
                     <input
                       type="date"
                       name="deadline"
                       value={
-                        formData.deadline !== "Fleksibel"
+                        formData.deadline && formData.deadline !== "Fleksibel"
                           ? formData.deadline
                           : ""
                       }
-                      onChange={handleChanges}
-                      className="mt-2 p-2 border rounded w-full"
+                      onChange={(e) =>
+                        setFormData({ ...formData, deadline: e.target.value })
+                      }
+                      className="mt-2 p-2 border-none rounded w-full text-white focus:outline-none focus:ring-0"
+                      style={{
+                        colorScheme: "dark", // Biar tanggal juga putih di mode dark
+                      }}
                     />
                   </div>
                   <div
-                    className={`p-4 shadow-xl rounded-lg border cursor-pointer ${
+                    className={`p-4 shadow-xl rounded-lg border cursor-pointer text-center flex items-center justify-center ${
                       formData.deadline === "Fleksibel"
                         ? "border-ijo"
                         : "border-groyy"
@@ -312,15 +367,19 @@ const ServicePage: React.FC = () => {
                       setFormData({ ...formData, deadline: "Fleksibel" })
                     }
                   >
-                    <h4 className="font-bold text-ijo">Jadwal Fleksibel</h4>
+                    <h4 className="font-bold text-[13px] text-white text-center flex items-center justify-center">
+                      Jadwal Fleksibel
+                    </h4>
                   </div>
                 </div>
-                <button
-                  onClick={handleNext}
-                  className="mt-4 px-4 py-2 bg-ijo text-white rounded"
-                >
-                  Next
-                </button>
+                <div className="flex justify-end mt-4">
+                  <button
+                    onClick={handleNext}
+                    className="px-4 py-2 text-white rounded bg-green-600"
+                  >
+                    Next
+                  </button>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
