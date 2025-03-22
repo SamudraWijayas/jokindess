@@ -182,7 +182,7 @@ const ServicePage: React.FC = () => {
         <Image
           src="/rectangle/rectangle3.png"
           alt="Decorative"
-          className="absolute -bottom-10 -z-0 -right-6 md:-right-81 w-30 md:w-70 h-auto"
+          className="absolute -bottom-10 -z-10 -right-6 md:-right-81 w-30 md:w-70 h-auto"
           width={120}
           height={120}
         />
