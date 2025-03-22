@@ -171,7 +171,7 @@ const ServicePage: React.FC = () => {
   };
 
   return (
-    <main className="flex flex-col items-center text-center p-6" id="service">
+    <main className="flex flex-col items-center text-center py-26 p-6" id="service">
       <h2 className="text-2xl font-bold text-white" data-aos="fade-up">
         Halo Ndess, mau joki apa nih?
       </h2>
@@ -182,7 +182,7 @@ const ServicePage: React.FC = () => {
         <Image
           src="/rectangle/rectangle3.png"
           alt="Decorative"
-          className="absolute -bottom-10 -z-10 -right-6 md:-right-81 w-30 md:w-70 h-auto"
+          className="absolute -bottom-10 -z-0 -right-6 md:-right-81 w-30 md:w-70 h-auto"
           width={120}
           height={120}
         />

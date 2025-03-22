@@ -62,7 +62,7 @@ const ProjectList: React.FC = () => {
   }, []);
 
   return (
-    <div className="text-white min-h-screen flex flex-col items-center px-2 py-10" id="proyek">
+    <div className="text-white min-h-screen flex flex-col items-center px-2 py-26" id="proyek">
       <h1 className="text-center text-2xl font-bold mb-4" data-aos="fade-up">
         Kami Punya Proyek Siap Pakai
       </h1>

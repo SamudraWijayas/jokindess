@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <header className="fixed w-full z-10 flex justify-between items-center p-6 bg-gelap text-white">
+    <header className="fixed w-full z-10 flex justify-between items-center px-6 lg:px-20 p-6 bg-gelap text-white">
       <div className="flex items-center">
         <Image
           src="/logo.png"

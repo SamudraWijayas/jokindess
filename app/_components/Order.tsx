@@ -31,7 +31,7 @@ const Order: NextPage = () => {
 
   return (
     <div
-      className="text-white items-center py-10 px-2 sm:px-8 lg:px-12"
+      className="text-white items-center py-26 px-2 sm:px-8 lg:px-12"
       id="faq"
     >
       <div className="w-full mx-auto px-4 sm:px-6 py-10">

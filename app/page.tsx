@@ -9,12 +9,14 @@ import Proyek from "@/app/_components/Proyek";
 import Order from "@/app/_components/Order";
 import Footer from "@/app/_components/Footer";
 import Link from "next/link";
+import ParticlesBackground from "../components/ui/ParticlesBackground";
 
 const Home: React.FC = () => {
   return (
     <>
+      <ParticlesBackground id="tsparticles" />
       <Navbar />
-      <div className="homepage text-white mb-27 pt-10 lg:pt-37 bg-background">
+      <div className="homepage text-white mb-27 pt-10 lg:pt-37 ">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="hero grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-20 px-6 md:px-10 pt-20">
             {/* Decorative Rectangle */}
