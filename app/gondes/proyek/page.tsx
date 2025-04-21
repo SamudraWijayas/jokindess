@@ -322,6 +322,7 @@ export default function ProyekPage() {
                 "Node.js",
                 "Mongo DB",
                 "Express JS",
+                "Flutter"
               ].map((tech) => (
                 <label key={tech} className="flex items-center gap-2">
                   <input
@@ -360,6 +361,7 @@ export default function ProyekPage() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="Website">Website</SelectItem>
+                <SelectItem value="Website">Mobile</SelectItem>
                 <SelectItem value="Undangan Web">Undangan Web</SelectItem>
                 <SelectItem value="Joki Skripsi">Joki Skripsi</SelectItem>
               </SelectContent>

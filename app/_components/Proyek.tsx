@@ -5,6 +5,30 @@ import Image from "next/image";
 import AOS from "aos"; // Tambahkan ini
 import "aos/dist/aos.css"; // Import CSS AOS
 
+// Import react-icons for technology icons
+import {
+  FaReact,
+  FaNodeJs,
+  FaPython,
+  FaJava,
+  FaPhp,
+  FaAngular,
+  FaVuejs,
+  FaDocker,
+} from "react-icons/fa";
+import {
+  SiTypescript,
+  SiJavascript,
+  SiNextdotjs,
+  SiMongodb,
+  SiMysql,
+  SiTailwindcss,
+  SiGraphql,
+  SiRedux,
+  SiFlutter,
+  SiExpress,
+} from "react-icons/si";
+
 interface Proyek {
   _id?: string;
   title: string;
@@ -16,7 +40,12 @@ interface Proyek {
   category: string;
 }
 
-const categories: string[] = ["Website", "Undangan Web", "Joki Skripsi"];
+const categories: string[] = [
+  "Website",
+  "Undangan Web",
+  "Joki Skripsi",
+  "Mobile",
+];
 
 type CategoryColors = {
   [key: string]: string;
@@ -26,6 +55,32 @@ const categoryColors: CategoryColors = {
   Website: "bg-red-300 border-2 border-red-500 text-red-900",
   "Undangan Web": "bg-blue-300 border-2 border-blue-500 text-blue-900",
   "Joki Skripsi": "bg-yellow-200 border-2 border-yellow-400 text-yellow-700",
+  Mobile: "bg-green-200 border-2 border-green-400 text-green-700",
+};
+
+import React from "react";
+
+// Map technology name to icon component
+const normalizeTech = (tech: string) => tech.replace(/\s+/g, "").toLowerCase();
+const techIcons: { [key: string]: React.ReactNode } = {
+  reactjs: <FaReact className="inline mr-1 size-4" />,
+  nodejs: <FaNodeJs className="inline mr-1 size-4" />,
+  node: <FaNodeJs className="inline mr-1" />,
+  python: <FaPython className="inline mr-1" />,
+  java: <FaJava className="inline mr-1" />,
+  php: <FaPhp className="inline mr-1" />,
+  angular: <FaAngular className="inline mr-1" />,
+  vue: <FaVuejs className="inline mr-1" />,
+  docker: <FaDocker className="inline mr-1" />,
+  typescript: <SiTypescript className="inline mr-1" />,
+  javascript: <SiJavascript className="inline mr-1" />,
+  nextjs: <SiNextdotjs className="inline mr-1" />,
+  mongodb: <SiMongodb className="inline mr-1" />,
+  mysql: <SiMysql className="inline mr-1" />,
+  tailwindcss: <SiTailwindcss className="inline mr-1" />,
+  graphql: <SiGraphql className="inline mr-1" />,
+  expressjs: <SiExpress className="inline mr-1 size-4" />,
+  flutter: <SiFlutter className="inline mr-1 size-4" />,
 };
 
 const ProjectList: React.FC = () => {
@@ -62,7 +117,10 @@ const ProjectList: React.FC = () => {
   }, []);
 
   return (
-    <div className="text-white min-h-screen flex flex-col items-center px-2 py-26" id="proyek">
+    <div
+      className="text-white min-h-screen flex flex-col items-center px-2 py-26"
+      id="proyek"
+    >
       <h1 className="text-center text-2xl font-bold mb-4" data-aos="fade-up">
         Kami Punya Proyek Siap Pakai
       </h1>
@@ -113,13 +171,13 @@ const ProjectList: React.FC = () => {
                   />
                 )}
                 <p className="mb-2">{proyek.description}</p>
-                <h2 className="text-lg font-semibold mb-2">{proyek.title}</h2>
                 <div className="flex flex-wrap gap-2 my-6">
                   {proyek.technologies.map((tech, index) => (
                     <span
                       key={index}
-                      className="bg-background text-white py-1 px-3 rounded-full text-sm"
+                      className="bg-background text-green-600 py-1 px-3 rounded-full text-sm flex items-center border-2 border-green-600 "
                     >
+                      {techIcons[normalizeTech(tech)] ?? null}
                       {tech}
                     </span>
                   ))}
