@@ -9,9 +9,6 @@ export const metadata: Metadata = {
   },
   description:
     "Joki Ndess's Professional web development services for your business",
-  icons: {
-    icon: ["/logo.png"],
-  },
 };
 
 export default function RootLayout({
