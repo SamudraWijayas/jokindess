@@ -8,7 +8,27 @@ export const metadata: Metadata = {
     template: "%s - Solusi Implementasi proyek IT tercepat dan terpercaya",
   },
   description:
-    "Joki Ndess's Professional web development services for your business",
+    "Kami hadir sebagai solusi terpercaya untuk mewujudkan proyek IT Anda dengan harga terjangkau, proses cepat, dan hasil yang memuaskan.",
+  icons: {
+    icon: "/favicon.ico", // pastikan file ini ada di folder public
+  },
+  openGraph: {
+    title: "Joki Ndess - Jasa Pembuatan Website Profesional",
+    description:
+      "Kami hadir sebagai solusi terpercaya untuk mewujudkan proyek IT Anda dengan harga terjangkau, proses cepat, dan hasil yang memuaskan.",
+    url: "https://www.jokindess.com",
+    siteName: "Joki Ndess",
+    images: [
+      {
+        url: "https://www.jokindess.com/opengraph-image.jpg", // taruh gambar ini di /public/
+        width: 1200,
+        height: 630,
+        alt: "Joki Ndess Open Graph Image",
+      },
+    ],
+    type: "website",
+    locale: "id_ID",
+  },
 };
 
 export default function RootLayout({
