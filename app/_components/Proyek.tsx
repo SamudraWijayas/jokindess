@@ -6,28 +6,8 @@ import AOS from "aos"; // Tambahkan ini
 import "aos/dist/aos.css"; // Import CSS AOS
 
 // Import react-icons for technology icons
-import {
-  FaReact,
-  FaNodeJs,
-  FaPython,
-  FaJava,
-  FaPhp,
-  FaAngular,
-  FaVuejs,
-  FaDocker,
-} from "react-icons/fa";
-import {
-  SiTypescript,
-  SiJavascript,
-  SiNextdotjs,
-  SiMongodb,
-  SiMysql,
-  SiTailwindcss,
-  SiGraphql,
-  SiRedux,
-  SiFlutter,
-  SiExpress,
-} from "react-icons/si";
+import { FaReact, FaNodeJs } from "react-icons/fa";
+import { SiFlutter, SiExpress } from "react-icons/si";
 
 interface Proyek {
   _id?: string;
@@ -65,20 +45,6 @@ const normalizeTech = (tech: string) => tech.replace(/\s+/g, "").toLowerCase();
 const techIcons: { [key: string]: React.ReactNode } = {
   reactjs: <FaReact className="inline mr-1 size-4" />,
   nodejs: <FaNodeJs className="inline mr-1 size-4" />,
-  node: <FaNodeJs className="inline mr-1" />,
-  python: <FaPython className="inline mr-1" />,
-  java: <FaJava className="inline mr-1" />,
-  php: <FaPhp className="inline mr-1" />,
-  angular: <FaAngular className="inline mr-1" />,
-  vue: <FaVuejs className="inline mr-1" />,
-  docker: <FaDocker className="inline mr-1" />,
-  typescript: <SiTypescript className="inline mr-1" />,
-  javascript: <SiJavascript className="inline mr-1" />,
-  nextjs: <SiNextdotjs className="inline mr-1" />,
-  mongodb: <SiMongodb className="inline mr-1" />,
-  mysql: <SiMysql className="inline mr-1" />,
-  tailwindcss: <SiTailwindcss className="inline mr-1" />,
-  graphql: <SiGraphql className="inline mr-1" />,
   expressjs: <SiExpress className="inline mr-1 size-4" />,
   flutter: <SiFlutter className="inline mr-1 size-4" />,
 };
