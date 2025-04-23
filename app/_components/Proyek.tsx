@@ -9,6 +9,7 @@ import "aos/dist/aos.css"; // Import CSS AOS
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiFlutter, SiExpress } from "react-icons/si";
 
+
 interface Proyek {
   _id?: string;
   title: string;
