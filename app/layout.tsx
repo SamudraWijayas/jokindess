@@ -8,10 +8,10 @@ export const metadata: Metadata = {
     template: "%s | Jokindess",
   },
   description:
-    "Jasa pembuatan website tugas kuliah, portofolio, dan landing page bisnis dengan harga terjangkau dan cepat.  ",
+    "Kami hadir sebagai solusi terpercaya untuk mewujudkan proyek IT Anda dengan harga terjangkau, proses cepat, dan hasil yang memuaskan.",
   metadataBase: new URL("https://www.jokindess.com"),
   icons: {
-    icon: "/favicon.ico", // pastikan file ini ada di folder public
+    icon: "/favicon.ico",
   },
   other: {
     keywords:
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Joki Ndess",
     images: [
       {
-        url: "https://www.jokindess.com/opengraph-image.jpg", // taruh gambar ini di /public/
+        url: "https://www.jokindess.com/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "Joki Ndess Open Graph Image",
@@ -54,8 +54,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
+      <head>
+        {/* Schema Markup for Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Joki Ndess",
+              url: "https://www.jokindess.com",
+              logo: "/favicon.ico",
+              sameAs: [
+                "https://www.instagram.com/jokindesss", // opsional
+              ],
+            }),
+          }}
+        />
+      </head>
       <body>
-        <Toaster /> {/* Tambahkan ini */}
+        <Toaster />
         {children}
       </body>
     </html>
