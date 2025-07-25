@@ -171,30 +171,24 @@ const ServicePage: React.FC = () => {
   };
 
   return (
-    <main className="flex flex-col items-center text-center py-26 p-6" id="service">
+    <main
+      className="flex flex-col items-center text-center py-26 p-6"
+      id="service"
+    >
       <h2 className="text-2xl font-bold text-white" data-aos="fade-up">
         Halo Ndess, mau joki apa nih?
       </h2>
       <p className="mt-2 text-white" data-aos="fade-up">
         Kami menyediakan jasa IT termurah, tercepat, dan terpercaya.
       </p>
-      <section className="mt-7 bg-groyy lg:h-[auto] p-1 lg:p-6 rounded-lg max-w-4xl w-full relative">
-        <Image
-          src="/rectangle/rectangle3.png"
-          alt="Decorative"
-          className="absolute -bottom-10 -z-10 -right-6 md:-right-81 w-30 md:w-70 h-auto"
-          width={120}
-          height={120}
-        />
-        <Image
-          src="/rectangle/rectangle2.png"
-          alt="Decorative"
-          className="absolute -bottom-10 -z-10 -left-6 md:-left-81 w-30 md:w-70 h-auto"
-          width={120}
-          height={120}
-        />
-
-        <div className="p-6 rounded-lg relative" data-aos="zoom-in">
+      <section className="mt-7 bg-[#0a2615] border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.3)] lg:h-[auto] p-1 lg:p-6 rounded-lg max-w-4xl w-full relative">
+        <motion.div
+          className="p-6 rounded-lg relative"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.4 }}
+        >
           <div className="flex items-center justify-center space-x-4 mb-10">
             {steps.map((Icon, index) => (
               <React.Fragment key={index}>
@@ -228,7 +222,7 @@ const ServicePage: React.FC = () => {
                 initial={{ x: 100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
               >
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4 ">
                   <div>
                     <h3 className="text-2xl font-bold text-white">
                       Apa jenis proyeknya?
@@ -252,7 +246,7 @@ const ServicePage: React.FC = () => {
                       className={`p-4 shadow-xl rounded-lg border-2 cursor-pointer min-h-[100px] text-left ${
                         selectedService === name
                           ? "border-green-600"
-                          : "border-gray-500"
+                          : "border-white/10"
                       }`}
                       onClick={() => handleServiceSelection(name)}
                     >
@@ -331,10 +325,10 @@ const ServicePage: React.FC = () => {
 
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div
-                    className={`p-4 shadow-xl rounded-lg border cursor-pointer ${
+                    className={`p-4 shadow-xl rounded-lg border-2 cursor-pointer ${
                       formData.deadline && formData.deadline !== "Fleksibel"
-                        ? "border-ijo"
-                        : "border-groyy"
+                        ? "border-green-600"
+                        : "border-white/10"
                     }`}
                   >
                     <h4 className="font-bold text-white text-left text-[13px]">
@@ -360,8 +354,8 @@ const ServicePage: React.FC = () => {
                   <div
                     className={`p-4 shadow-xl rounded-lg border cursor-pointer text-left flex items-center ${
                       formData.deadline === "Fleksibel"
-                        ? "border-ijo"
-                        : "border-groyy"
+                        ? "border-green-600"
+                        : "border-white/10"
                     }`}
                     onClick={() =>
                       setFormData({ ...formData, deadline: "Fleksibel" })
@@ -383,7 +377,7 @@ const ServicePage: React.FC = () => {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
       </section>
       <Dialog open={isModalVisible} onOpenChange={setIsModalVisible}>
         <DialogContent className="text-white">
