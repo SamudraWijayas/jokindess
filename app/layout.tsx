@@ -72,7 +72,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
+      <body className="bg-gradient-to-b from-green-950 via-[#05170d] to-[#03230f]">
         <Toaster />
         {children}
       </body>
