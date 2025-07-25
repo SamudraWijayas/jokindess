@@ -66,7 +66,7 @@ const Order: NextPage = () => {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-groyy text-white rounded-lg shadow-md"
+                className="bg-[#0a2615] border border-white/10 text-white rounded-lg shadow-md"
               >
                 <button
                   onClick={() => toggleDropdown(index)}
