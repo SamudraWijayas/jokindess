@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <header className="fixed w-full z-10 flex justify-between items-center px-6 lg:px-20 p-6 bg-gelap text-white">
+    <header className="fixed w-full z-50 flex justify-between items-center px-6 lg:px-20 p-6 bg-black/20 backdrop-blur-lg text-white">
       <div className="flex items-center">
         <Image
           src="/logo.png"
@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
       </button>
 
       <nav
-        className={`absolute md:static bg-amber-200 top-16 left-0 w-full md:w-auto bg-gelap md:bg-transparent flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 p-6 md:p-0 transition-all duration-300 ease-in-out transform -z-10 ${
+        className={`absolute md:static top-16 left-0 w-full md:w-auto bg-[#0a2615] z-50 md:bg-transparent flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 p-6 md:p-0 transition-all duration-300 ease-in-out transform ${
           isOpen
             ? "opacity-100 translate-y-0 scale-100"
             : "opacity-0 -translate-y-5 scale-95 md:opacity-100 md:translate-y-0 md:scale-100 md:flex"
