@@ -11,8 +11,6 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
-
-
   useEffect(() => {
     const stored = localStorage.getItem("darkMode");
     if (stored === "true") setDarkMode(true);
@@ -58,7 +56,7 @@ const Navbar: React.FC = () => {
             Faq
           </Link>
         </nav>
-         <DarkModeToggle />
+        <DarkModeToggle />
       </div>
 
       {/* Mobile Toggle + Dark Mode Button */}
@@ -74,7 +72,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Nav */}
       <nav
-        className={`md:hidden absolute top-[70px] left-0 w-full bg-[#0a2615] z-40 flex flex-col items-start space-y-4 px-6 py-4 text-left transition-all duration-300 ease-in-out ${
+        className={`md:hidden absolute top-[70px] left-0 w-full bg-[#0a2615] text-white z-40 flex flex-col items-start space-y-4 px-6 py-4 text-left transition-all duration-300 ease-in-out ${
           isOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-5 pointer-events-none"
