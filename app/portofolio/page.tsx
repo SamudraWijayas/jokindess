@@ -35,7 +35,7 @@ export default function PortofolioPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen mb-24 pt-10 lg:pt-26">
+      <main className="min-h-screen mb-24 pt-26 lg:pt-26">
         <div className="max-w-6xl mx-auto px-4">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
             Portofolio Saya
