@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import AOS from "aos"; // Tambahkan ini
 import "aos/dist/aos.css"; // Import CSS AOS
+import { motion } from "framer-motion"; // Tambahan
 
 // Import react-icons for technology icons
 import { FaReact, FaNodeJs } from "react-icons/fa";
@@ -133,9 +134,13 @@ const ProjectList: React.FC = () => {
           data-aos="fade-up"
         >
           {filteredProjects.length > 0 ? (
-            filteredProjects.map((proyek) => (
-              <div
+            filteredProjects.map((proyek, index) => (
+              <motion.div
                 key={proyek._id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                whileHover={{ scale: 1.03 }}
                 className="relative bg-white dark:bg-[#0a2615] border dark:border-white/10 border-gray-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] p-4 rounded-lg w-[20em] overflow-hidden"
               >
                 {/* Background SVG Layer */}
@@ -187,7 +192,7 @@ const ProjectList: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))
           ) : (
             <p className="text-gray-400">
