@@ -11,7 +11,6 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
-  
   useEffect(() => {
     const stored = localStorage.getItem("darkMode");
     if (stored === "true") setDarkMode(true);
@@ -73,14 +72,8 @@ const Navbar: React.FC = () => {
         <Link href="#home" className="hover:text-green-400 w-full">
           Beranda
         </Link>
-        <Link href="#service" className="hover:text-green-400 w-full">
-          Service
-        </Link>
-        <Link href="#proyek" className="hover:text-green-400 w-full">
-          Proyek
-        </Link>
-        <Link href="#faq" className="hover:text-green-400 w-full">
-          Faq
+        <Link href="/portofolio" className="hover:text-green-400">
+          Portofolio
         </Link>
       </nav>
     </header>
