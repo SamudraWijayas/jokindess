@@ -81,6 +81,9 @@ const Navbar: React.FC = () => {
         <Link href="#home" className="hover:text-green-400 w-full">
           Beranda
         </Link>
+        <Link href="/portofolio" className="hover:text-green-400">
+          Portofolio
+        </Link>
         <Link href="#service" className="hover:text-green-400 w-full">
           Service
         </Link>
