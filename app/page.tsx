@@ -16,10 +16,10 @@ const Home: React.FC = () => {
       {/* <ParticlesBackground id="tsparticles" /> */}
       <Navbar />
       <div className="homepage min-h-screen mb-27 pt-10 lg:pt-20">
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="container mx-auto  lg:px-12 relative z-10">
           <div className="hero grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-20 px-6 md:px-10 pt-20">
             {/* Text Section */}
-            <div className="text-center md:text-left z-2">
+            <div className="text-left z-2">
               <motion.h1
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ const Home: React.FC = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                className="mt-4 text-lg md:text-xl text-green-800 dark:text-white"
+                className="mt-4 text-lg md:text-xl text-green-800 dark:text-white font-semibold"
               >
                 Kami Siap Membantu Proyek Koding Anda,{" "}
                 <span className="text-green-600 underline font-semibold">
@@ -52,7 +52,7 @@ const Home: React.FC = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-                className="mt-4 text-green-900 dark:text-white text-sm md:text-base leading-relaxed"
+                className="mt-4 text-green-900 dark:text-white text-sm md:text-base leading-relaxed text-left font-semibold"
               >
                 Kami hadir sebagai solusi terpercaya untuk mewujudkan proyek IT
                 Anda dengan harga terjangkau, proses cepat, dan hasil memuaskan.
