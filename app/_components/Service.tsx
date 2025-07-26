@@ -183,8 +183,11 @@ const ServicePage: React.FC = () => {
       <p className="mt-2 text-black dark:text-white" data-aos="fade-up">
         Kami menyediakan jasa IT termurah, tercepat, dan terpercaya.
       </p>
-      <div className="mt-10 relative">
-        <section className="mt-7 dark:bg-[#0a2615] bg-white border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.3)] lg:h-[76vh] p-1 lg:p-6 rounded-lg lg:max-w-4xl lg:w-full w-full max-w-5xl relative" data-aos="fade-up">
+      <div className="mt-10 w-full h-full max-w-4xl relative">
+        <section
+          className="mt-7 dark:bg-[#0a2615] bg-white border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.3)] lg:h-[76vh] p-1 lg:p-6 rounded-lg lg:max-w-4xl lg:w-full w-full max-w-5xl relative"
+          data-aos="fade-up"
+        >
           <motion.div
             className="p-6 rounded-lg relative"
             initial={{ opacity: 0, y: 50 }}
