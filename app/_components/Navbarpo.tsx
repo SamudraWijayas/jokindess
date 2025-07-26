@@ -63,13 +63,13 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Nav */}
       <nav
-        className={`md:hidden absolute top-[70px] left-0 w-full bg-[#0a2615] z-40 flex flex-col items-start space-y-4 px-6 py-4 text-left transition-all duration-300 ease-in-out ${
+        className={`md:hidden absolute text-white top-[70px] left-0 w-full bg-[#0a2615] z-40 flex flex-col items-start space-y-4 px-6 py-4 text-left transition-all duration-300 ease-in-out ${
           isOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-5 pointer-events-none"
         }`}
       >
-        <Link href="#home" className="hover:text-green-400 w-full">
+        <Link href="/" className="hover:text-green-400 w-full">
           Beranda
         </Link>
         <Link href="/portofolio" className="hover:text-green-400">
