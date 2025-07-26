@@ -34,12 +34,18 @@ export default function PortofolioClient() {
       <Navbar />
       <main className="min-h-screen mb-24 pt-26 lg:pt-26">
         <div className="max-w-6xl mx-auto px-4">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Portofolio Saya
-          </h1>
-          <p className="text-gray-700 dark:text-gray-300 mb-10">
-            Beberapa proyek unggulan yang telah saya kerjakan:
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
+          >
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+              Portofolio Saya
+            </h1>
+            <p className="text-gray-700 dark:text-gray-300 mb-10">
+              Beberapa proyek unggulan yang telah saya kerjakan:
+            </p>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
@@ -52,16 +58,23 @@ export default function PortofolioClient() {
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                  whileHover={{ scale: 1.03 }}
-                  className="flex flex-col h-full dark:bg-[#0a2615] bg-white border dark:border-white/10 border-gray-300 rounded-xl shadow-xl hover:shadow-lg transition duration-300 overflow-hidden"
+                  transition={{
+                    duration: 0.6,
+                    ease: "easeOut",
+                    delay: index * 0.2,
+                  }}
+                  whileHover={{
+                    scale: 1.04,
+                    transition: { duration: 0.3, ease: "easeInOut" },
+                  }}
+                  className="flex flex-col h-full dark:bg-[#0a2615] bg-white border dark:border-white/10 border-gray-300 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden"
                 >
                   <div className="relative h-48 w-full">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                     />
                   </div>
                   <div className="p-4 flex flex-col flex-grow">
