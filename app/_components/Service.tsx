@@ -183,7 +183,7 @@ const ServicePage: React.FC = () => {
       <p className="mt-2 text-black dark:text-white" data-aos="fade-up">
         Kami menyediakan jasa IT termurah, tercepat, dan terpercaya.
       </p>
-      <div className="mt-10 w-full h-full max-w-4xl relative">
+      <div className="mt-10 relative">
         <section className="mt-7 dark:bg-[#0a2615] bg-white border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.3)] lg:h-[76vh] p-1 lg:p-6 rounded-lg lg:max-w-4xl lg:w-full w-full max-w-5xl relative" data-aos="fade-up">
           <motion.div
             className="p-6 rounded-lg relative"
@@ -386,7 +386,7 @@ const ServicePage: React.FC = () => {
         </section>
         <div
           data-v-d214f860=""
-          className="absolute -z-1 inset-0 bg-gradient-to-r from-green-300 to-blue-300 dark:from-green-400 dark:to-blue-400 rounded-3xl transform -rotate-6 scale-105 opacity-20"
+          className="absolute lg:w-full w-60 -z-1 inset-0 bg-gradient-to-r from-green-300 to-blue-300 dark:from-green-400 dark:to-blue-400 rounded-3xl transform -rotate-6 scale-105 opacity-20"
         ></div>
       </div>
       <Dialog open={isModalVisible} onOpenChange={setIsModalVisible}>
