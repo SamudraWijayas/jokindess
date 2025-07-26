@@ -1,12 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/app/_components/Navbarpo";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Portofolio Jasa Website",
-  description: "Kumpulan proyek unggulan yang telah kami kerjakan.",
-};
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -31,7 +28,7 @@ const projects = [
   },
 ];
 
-export default function PortofolioPage() {
+export default function PortofolioClient() {
   return (
     <>
       <Navbar />
@@ -45,19 +42,25 @@ export default function PortofolioPage() {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <Link
                 key={project.link}
                 href={project.link}
                 target="_blank"
                 className="group"
               >
-                <div className="flex flex-col h-full dark:bg-[#0a2615] bg-white border dark:border-white/10 border-gray-300 rounded-xl shadow-xl hover:shadow-lg transition duration-300 overflow-hidden">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  whileHover={{ scale: 1.03 }}
+                  className="flex flex-col h-full dark:bg-[#0a2615] bg-white border dark:border-white/10 border-gray-300 rounded-xl shadow-xl hover:shadow-lg transition duration-300 overflow-hidden"
+                >
                   <div className="relative h-48 w-full">
                     <Image
                       src={project.image}
                       alt={project.title}
-                      layout="fill"
+                      fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -72,7 +75,7 @@ export default function PortofolioPage() {
                       Lihat Detail →
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </Link>
             ))}
           </div>
