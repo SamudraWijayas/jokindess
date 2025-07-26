@@ -11,8 +11,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
-
-
+  
   useEffect(() => {
     const stored = localStorage.getItem("darkMode");
     if (stored === "true") setDarkMode(true);
@@ -42,23 +41,14 @@ const Navbar: React.FC = () => {
       {/* Desktop Navigation + Dark Toggle */}
       <div className="hidden md:flex items-center space-x-6">
         <nav className="flex items-center space-x-6">
-          <Link href="#home" className="hover:text-green-400">
+          <Link href="/" className="hover:text-green-400">
             Beranda
           </Link>
           <Link href="/portofolio" className="hover:text-green-400">
             Portofolio
           </Link>
-          <Link href="#service" className="hover:text-green-400">
-            Service
-          </Link>
-          <Link href="#proyek" className="hover:text-green-400">
-            Proyek
-          </Link>
-          <Link href="#faq" className="hover:text-green-400">
-            Faq
-          </Link>
         </nav>
-         <DarkModeToggle />
+        <DarkModeToggle />
       </div>
 
       {/* Mobile Toggle + Dark Mode Button */}

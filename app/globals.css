@@ -1,13 +1,61 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 html {
   scroll-behavior: smooth;
 }
+.bg-pricing {
+  background-image: url("/bg-pricing.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+}
+
+@keyframes meshMove {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-60%, -40%) scale(1.2);
+  }
+}
+
+@keyframes meshMoveMulti {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  25% {
+    transform: translate(-40%, -60%) scale(1.1);
+  }
+  50% {
+    transform: translate(-60%, -40%) scale(1.2);
+  }
+  75% {
+    transform: translate(-55%, -55%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.mesh-animate {
+  animation: mesh-move 12s ease-in-out infinite;
+  width: 200%;
+  height: 200%;
+  border-radius: 50%;
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(100px);
+}
 
 body {
   overflow-x: hidden;
-  background-color: #262626;
+  /* background-color: #262626; */
   font-family: "Quicksand", sans-serif;
 }
 
@@ -25,7 +73,7 @@ body {
   background-color: #378767;
 }
 .bg-gelap-1 {
-  background-color: #242323f0;
+  background-color: #2423236b;
 }
 
 .btn-ijo-opacity {

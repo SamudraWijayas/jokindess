@@ -31,7 +31,7 @@ const Order: NextPage = () => {
 
   return (
     <div
-      className="text-white items-center py-26 px-2 sm:px-8 lg:px-12"
+      className="dark:text-white text-black items-center py-26 px-2 sm:px-8 lg:px-12"
       id="faq"
     >
       <div className="w-full mx-auto px-4 sm:px-6 py-10">
@@ -66,7 +66,7 @@ const Order: NextPage = () => {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-groyy text-white rounded-lg shadow-md"
+                className="bg-white dark:bg-[#0a2615] border dark:border-white/10 border-gray-300 dark:text-white text-black rounded-lg shadow-md"
               >
                 <button
                   onClick={() => toggleDropdown(index)}
@@ -89,7 +89,7 @@ const Order: NextPage = () => {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="p-4 border-t border-gray-700 text-gray-300">
+                      <div className="p-4 border-t border-gray-700 dark:text-gray-300 text-black">
                         {faq.answer}
                       </div>
                     </motion.div>
