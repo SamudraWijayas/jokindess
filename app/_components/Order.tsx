@@ -66,7 +66,6 @@ const Order: NextPage = () => {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-[#0a2615] border border-white/10 text-white rounded-lg shadow-md"
                 className="bg-white dark:bg-[#0a2615] border dark:border-white/10 border-gray-300 dark:text-white text-black rounded-lg shadow-md"
               >
                 <button

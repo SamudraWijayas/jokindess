@@ -46,6 +46,12 @@ const Navbar: React.FC = () => {
           <Link href="/portofolio" className="hover:text-green-400">
             Portofolio
           </Link>
+          <Link
+            href="https://undangin.jokindess.com/"
+            className="hover:text-green-400"
+          >
+            Undangan Digital
+          </Link>
         </nav>
         <DarkModeToggle />
       </div>
@@ -74,6 +80,12 @@ const Navbar: React.FC = () => {
         </Link>
         <Link href="/portofolio" className="hover:text-green-400">
           Portofolio
+        </Link>
+        <Link
+          href="https://undangin.jokindess.com/"
+          className="hover:text-green-400"
+        >
+          Undangan Digital
         </Link>
       </nav>
     </header>

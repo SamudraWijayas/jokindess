@@ -46,7 +46,10 @@ const Navbar: React.FC = () => {
           <Link href="/portofolio" className="hover:text-green-400">
             Portofolio
           </Link>
-          <Link href="https://undangin.jokindess.com/" className="hover:text-green-400">
+          <Link
+            href="https://undangin.jokindess.com/"
+            className="hover:text-green-400"
+          >
             Undangan Digital
           </Link>
           <Link href="#service" className="hover:text-green-400">
@@ -87,7 +90,10 @@ const Navbar: React.FC = () => {
         <Link href="/portofolio" className="hover:text-green-400">
           Portofolio
         </Link>
-        <Link href="/portofolio" className="hover:text-green-400">
+        <Link
+          href="https://undangin.jokindess.com/"
+          className="hover:text-green-400"
+        >
           Undangan Digital
         </Link>
         <Link href="#service" className="hover:text-green-400 w-full">
