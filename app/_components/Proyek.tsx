@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import AOS from "aos"; // Tambahkan ini
 import "aos/dist/aos.css"; // Import CSS AOS
+import { motion } from "framer-motion"; // Tambahan
 
 // Import react-icons for technology icons
 import { FaReact, FaNodeJs } from "react-icons/fa";
-import { SiFlutter, SiExpress } from "react-icons/si";
-
+import { SiFlutter, SiExpress, SiTailwindcss, SiPython } from "react-icons/si";
 
 interface Proyek {
   _id?: string;
@@ -48,6 +48,8 @@ const techIcons: { [key: string]: React.ReactNode } = {
   nodejs: <FaNodeJs className="inline mr-1 size-4" />,
   expressjs: <SiExpress className="inline mr-1 size-4" />,
   flutter: <SiFlutter className="inline mr-1 size-4" />,
+  tailwindcss: <SiTailwindcss className="inline mr-1 size-4" />,
+  python: <SiPython className="inline mr-1 size-4" />,
 };
 
 const ProjectList: React.FC = () => {
@@ -85,19 +87,28 @@ const ProjectList: React.FC = () => {
 
   return (
     <div
-      className="text-white min-h-screen flex flex-col items-center px-2 py-26"
+      className=" min-h-screen flex flex-col items-center px-2 py-26"
       id="proyek"
     >
-      <h1 className="text-center text-2xl font-bold mb-4" data-aos="fade-up">
+      <h1
+        className="dark:text-white text-black text-center text-2xl font-bold mb-4"
+        data-aos="fade-up"
+      >
         Kami Punya Proyek Siap Pakai
       </h1>
-      <p className="text-center mb-6" data-aos="fade-up">
+      <p
+        className="dark:text-white text-black text-center mb-6"
+        data-aos="fade-up"
+      >
         Telusuri proyek terbaru kami, temukan proyek siap pakai sesuai
         kebutuhanmu untuk mendapatkan harga lebih murah dan penyelesaian lebih
         cepat!
       </p>
 
-      <div className="flex flex-wrap justify-center gap-4 mb-8">
+      <div
+        className="flex flex-wrap justify-center gap-4 mb-8 px-2"
+        data-aos="fade-up"
+      >
         {categories.map((category) => (
           <button
             key={category}
@@ -105,7 +116,7 @@ const ProjectList: React.FC = () => {
             className={`py-2 px-4 rounded-lg transition-colors font-semibold text-sm md:text-base lg:text-sm ${
               selectedCategory === category
                 ? categoryColors[category]
-                : "bg-groyy text-white"
+                : "dark:bg-[#0a2615] bg-white border dark:border-white/10 border-gray-300 dark:text-white text-black shadow-xl "
             }`}
           >
             {category}
@@ -123,45 +134,65 @@ const ProjectList: React.FC = () => {
           data-aos="fade-up"
         >
           {filteredProjects.length > 0 ? (
-            filteredProjects.map((proyek) => (
-              <div
+            filteredProjects.map((proyek, index) => (
+              <motion.div
                 key={proyek._id}
-                className="bg-groyy p-4 rounded-lg w-[20em]"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                whileHover={{ scale: 1.03 }}
+                className="relative bg-white dark:bg-[#0a2615] border dark:border-white/10 border-gray-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] p-4 rounded-lg w-[20em] overflow-hidden"
               >
-                {typeof proyek.image === "string" && proyek.image && (
-                  <Image
-                    src={proyek.image}
-                    alt={proyek.title}
-                    className="w-full h-40 object-cover mb-4 rounded-lg"
-                    width={200}
-                    height={100}
-                  />
-                )}
-                <p className="mb-2">{proyek.description}</p>
-                <div className="flex flex-wrap gap-2 my-6">
-                  {proyek.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="bg-background text-green-600 py-1 px-3 rounded-full text-sm flex items-center border-2 border-green-600 "
-                    >
-                      {techIcons[normalizeTech(tech)] ?? null}
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <hr />
-                <div className="flex justify-between items-center mt-4">
-                  <span className="text-[13px]">Proyek Siap digunakan</span>
-                  <div className="flex flex-col text-right">
-                    <span className="text-gray-500 line-through text-[13px]">
-                      Rp {proyek.oldprice}
-                    </span>
-                    <span className="text-white font-semibold text-[19px]">
-                      Rp {proyek.price}
-                    </span>
+                {/* Background SVG Layer */}
+                <div className="absolute inset-0 z-0 bg-[url('/green_stars.png')] top-0 left-0 bg-top bg-no-repeat bg-contain opacity-[30%] pointer-events-none" />
+
+                {/* Content Layer */}
+                <div className="relative z-10 flex flex-col h-full">
+                  {typeof proyek.image === "string" && proyek.image && (
+                    <Image
+                      src={proyek.image}
+                      alt={proyek.title}
+                      className="w-full h-40 object-cover mb-4 rounded-lg"
+                      width={200}
+                      height={100}
+                    />
+                  )}
+
+                  <div className="flex-grow">
+                    <p className="mb-2 font-bold bg-white dark:bg-[#0a2615]">
+                      {proyek.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 my-6">
+                      {proyek.technologies.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="bg-gradient-to-r from-green-200 to-lime-200 text-black border border-white/10 py-1 px-3 rounded-full text-sm flex items-center"
+                        >
+                          {techIcons[normalizeTech(tech)] ?? null}
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Footer tetap di bawah */}
+                  <div className="mt-auto">
+                    <hr className="border border-gray-300 dark:border-gray-600" />
+                    <div className="flex justify-between items-center mt-4">
+                      <span className="text-[13px]">Proyek Siap digunakan</span>
+                      <div className="flex flex-col text-right">
+                        <span className="dark:text-gray-300 text-black line-through text-[13px]">
+                          Rp {proyek.oldprice}
+                        </span>
+                        <span className="dark:text-white text-black font-semibold text-[19px]">
+                          Rp {proyek.price}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))
           ) : (
             <p className="text-gray-400">
