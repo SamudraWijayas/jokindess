@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    link: "https://babunnajah.jokindess.com",
+    link: "https://ybalampung.org/",
     title: "Website Yayasan",
     description:
       "Website profil sekolah yang dilengkapi dengan berbagai fitur mulai dari galeri, artikel, dan lainnya.",
