@@ -7,6 +7,13 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    link: "https://tiket.jokindess.com/",
+    title: "Tiket Online",
+    description:
+      "Platform penjualan tiket online dengan integrasi payment gateway",
+    image: "/porto/tiket.png",
+  },
+  {
     link: "https://babunnajah.jokindess.com",
     title: "Website Yayasan",
     description:

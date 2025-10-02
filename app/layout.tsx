@@ -48,7 +48,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: {
@@ -70,16 +69,42 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Beranda",
+                  item: "https://www.jokindess.com",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Portofolio",
+                  item: "https://www.jokindess.com/portofolio",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: "Undangan Digital",
+                  item: "https://www.undangin.jokindess.com",
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body className="bg-green-50 dark:bg-[#03230f] text-black dark:text-white transition-colors ">
         <DarkModeProvider>
           <Toaster />
-          {/* <div className="fixed inset-0 -z-10 dark:hidden overflow-hidden">
-            <div className="w-[150%] h-[150%] animate-[meshMove_15s_ease-in-out_infinite_alternate] bg-[radial-gradient(circle_at_30%_30%,#bbf7d0,transparent_60%),radial-gradient(circle_at_70%_40%,#86efac,transparent_60%),radial-gradient(circle_at_50%_80%,#4ade80,transparent_60%)] blur-2xl opacity-60 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-          </div> */}
           {/* Mesh Background hanya untuk Light Mode */}
-          <div className="fixed inset-0 -z-10 dark:hidden overflow-hidden">
-          <div
+          <div className="fixed inset-0 overflow-hidden -z-10 dark:hidden">
+            <div
               className="w-[150%] h-[150%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl opacity-60"
               style={{
                 animation: "meshMoveMulti 15s ease-in-out infinite",
