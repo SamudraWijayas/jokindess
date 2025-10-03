@@ -14,7 +14,14 @@ const projects = [
     image: "/porto/tiket.png",
   },
   {
-    link: "https://babunnajah.jokindess.com",
+    link: "https://tiket.jokindess.com/",
+    title: "Tiket Online",
+    description:
+      "Platform penjualan tiket online dengan integrasi payment gateway",
+    image: "/porto/tiket.png",
+  },
+  {
+    link: "https://ybalampung.org/",
     title: "Website Yayasan",
     description:
       "Website profil sekolah yang dilengkapi dengan berbagai fitur mulai dari galeri, artikel, dan lainnya.",
