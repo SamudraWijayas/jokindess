@@ -34,6 +34,7 @@ const categoryColors: CategoryColors = {
   "Joki Skripsi": "bg-yellow-200 border-2 border-yellow-400 text-yellow-700",
   Mobile: "bg-green-200 border-2 border-green-400 text-green-700",
 };
+
 import React from "react";
 
 // Map technology name to icon component
@@ -111,8 +112,7 @@ const ProjectList: React.FC = () => {
             onClick={() => setSelectedCategory(category)}
             className={`py-2 px-4 rounded-lg transition-colors font-semibold text-sm md:text-base lg:text-sm ${
               selectedCategory === category
-                ? categoryColors[category] ||
-                  "bg-gray-300 border border-gray-500 text-black"
+                ? categoryColors[category]
                 : "dark:bg-[#0a2615] bg-white border dark:border-white/10 border-gray-300 dark:text-white text-black shadow-xl "
             }`}
           >

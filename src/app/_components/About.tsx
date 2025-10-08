@@ -31,7 +31,7 @@ const WhyChooseUs: React.FC = () => {
     <section className="py-16 px-4 md:px-16 text-black dark:text-white">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
         {/* Kiri: List fitur */}
-        <div data-aos="fade-right">
+        <div data-aos="fade-down">
           <h2 className="text-3xl font-bold mb-6">
             Mengapa Memilih <span className="text-green-800 dark:text-cyan-400 ">Kami?</span>
           </h2>
@@ -59,7 +59,7 @@ const WhyChooseUs: React.FC = () => {
         {/* Kanan: Box fokus */}
         <div
           className="bg-green-200/50 dark:bg-[#0a2615] border dark:border-white/10 border-green-800/20 rounded-xl p-12 flex items-center justify-center text-center h-90"
-          data-aos="fade-left"
+          data-aos="fade-up"
         >
           <div className="flex gap-2">
             <span className="text-4xl mb-4 block">🚀</span>
