@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://www.jokindess.com
-
-# Sitemaps
-Sitemap: https://www.jokindess.com/sitemap.xml
