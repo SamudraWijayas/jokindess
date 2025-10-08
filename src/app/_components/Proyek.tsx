@@ -21,12 +21,7 @@ interface Proyek {
   category: string;
 }
 
-const categories: string[] = [
-  "All",
-  "Website",
-  "Joki Skripsi",
-  "Mobile",
-];
+const categories: string[] = ["All", "Website", "Joki Skripsi", "Mobile"];
 
 type CategoryColors = {
   [key: string]: string;
@@ -39,7 +34,6 @@ const categoryColors: CategoryColors = {
   "Joki Skripsi": "bg-yellow-200 border-2 border-yellow-400 text-yellow-700",
   Mobile: "bg-green-200 border-2 border-green-400 text-green-700",
 };
-
 import React from "react";
 
 // Map technology name to icon component
@@ -143,20 +137,11 @@ const ProjectList: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                onMouseMove={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const x = e.clientX - rect.left;
-                  const y = e.clientY - rect.top;
-                  e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
-                  e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
-                }}
                 whileHover={{ scale: 1.03 }}
-                className="relative bg-white dark:bg-[#0a2615] border dark:border-white/10 border-gray-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] p-4 rounded-lg w-[20em] overflow-hidden
-    before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full
-    before:rounded-lg before:pointer-events-none before:opacity-0 before:transition-opacity
-    hover:before:opacity-100 hover:before:bg-[radial-gradient(circle_at_var(--mouse-x)_var(--mouse-y),_rgba(34,197,94,0.3)_0%,_transparent_30%)]"
+                className="relative bg-white dark:bg-[#0a2615] border dark:border-white/10 border-gray-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] p-4 rounded-lg w-[20em] overflow-hidden"
               >
                 {/* Background SVG Layer */}
+                {/* <div className="absolute inset-0 z-0 bg-[url('/green_stars.png')] top-0 left-0 bg-top bg-no-repeat bg-contain opacity-[30%] pointer-events-none" /> */}
 
                 {/* Content Layer */}
                 <div className="relative z-10 flex flex-col h-full">
@@ -171,7 +156,9 @@ const ProjectList: React.FC = () => {
                   )}
 
                   <div className="flex-grow">
-                    <p className="mb-2 font-bold">{proyek.description}</p>
+                    <p className="mb-2 font-bold bg-white dark:bg-[#0a2615]">
+                      {proyek.description}
+                    </p>
 
                     <div className="flex flex-wrap gap-2 my-6">
                       {proyek.technologies.map((tech, index) => (
