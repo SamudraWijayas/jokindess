@@ -8,13 +8,13 @@ import Footer from "./_components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Joki Ndess - Jasa Pembuatan Website Profesional dan Terpercaya",
-    template: "%s | Jokindess",
+    default: "JokiNdes - Jasa Pembuatan Website Profesional dan Terpercaya",
+    template: "%s | Jokindes",
   },
-  authors: [{name: "Samudra Wijaya", url: "https://www.jokindess.com"}],
+  authors: [{name: "Samudra Wijaya", url: "https://www.jokindes.com"}],
   description:
     "Kami hadir sebagai solusi terpercaya untuk mewujudkan proyek IT Anda dengan harga terjangkau, proses cepat, dan hasil yang memuaskan.",
-  metadataBase: new URL("https://www.jokindess.com"),
+  metadataBase: new URL("https://www.jokindes.com"),
   icons: {
     icon: "/favicon.ico",
   },
@@ -31,17 +31,17 @@ export const metadata: Metadata = {
     title: "Joki Ndess - Jasa Pembuatan Website Profesional",
     description:
       "Solusi terpercaya untuk joki tugas website, landing page bisnis, dan portofolio. Cepat, murah, dan profesional.",
-    images: ["https://www.jokindess.com/opengraph-image.jpg"],
+    images: ["https://www.jokindes.com/opengraph-image.png"],
   },
   openGraph: {
     title: "Joki Ndess - Jasa Pembuatan Website Profesional",
     description:
       "Kami hadir sebagai solusi terpercaya untuk mewujudkan proyek IT Anda dengan harga terjangkau, proses cepat, dan hasil yang memuaskan.",
-    url: "https://www.jokindess.com",
+    url: "https://www.jokindes.com",
     siteName: "Joki Ndess",
     images: [
       {
-        url: "https://www.jokindess.com/opengraph-image.jpg",
+        url: "https://www.jokindes.com/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Joki Ndess Open Graph Image",
